@@ -24,23 +24,55 @@
 <main class="container">
     <section class="card">
         <h2>Rental Form</h2>
+        <p id="selectedCourseDisplay" style="margin-bottom:10px; font-weight:bold;"></p>
+        <form id="rentalForm">
+            <input type="hidden" id="selectedCourseCode" name="courseCode">
 
-        <form>
             <label for="textbook">Select a Textbook</label>
             <select id="textbook" required>
                 <option value="">-- Choose a textbook --</option>
-                <option>Introduction to Programming(cmpg111)</option>
-                <option>Data Structures and Algorithms(cmpg221)</option>
-                <option>Databases Systems(cmpg311)</option>
-                <option>Calculus I(mths111)</option>
+                <option>Introduction to Programming (CMPG111)</option>
+                <option>Data Structures and Algorithms (CMPG221)</option>
+                <option>Database Systems (CMPG311)</option>
+                <option>Calculus I (MTHS111)</option>
             </select>
 
             <label for="student">Student Name</label>
             <input type="text" id="student" placeholder="Enter your name" required>
 
+            <label for="studentNumber">Student Number</label>
+            <input type="text" id="studentNumber" placeholder="Enter your student number" required inputmode="numeric" pattern="[0-9]*">
+            <p id="studentNumberError" class="error-message" aria-live="polite"></p>
+
             <button type="submit">Rent Textbook</button>
         </form>
+
+        <div id="confirmation" class="confirmation-box" role="status" aria-live="polite" style="display:none;"></div>
     </section>
+
+    <script>
+    // Prefill selected course if present
+    document.addEventListener('DOMContentLoaded', () => {
+        const courseName = localStorage.getItem('selectedCourseName');
+        const courseCode = localStorage.getItem('selectedCourseCode');
+        if (courseName) {
+            const display = document.getElementById('selectedCourseDisplay');
+            display.textContent = `Selected course: ${courseName}`;
+        }
+        if (courseCode) {
+            const hidden = document.getElementById('selectedCourseCode');
+            hidden.value = courseCode;
+        }
+        // Try to preselect textbook if it matches the course name
+        const textbookSelect = document.getElementById('textbook');
+        for (let i = 0; i < textbookSelect.options.length; i++) {
+            if (textbookSelect.options[i].text === courseName) {
+                textbookSelect.selectedIndex = i;
+                break;
+            }
+        }
+    });
+    </script>
 </main>
 
 <footer class="footer">

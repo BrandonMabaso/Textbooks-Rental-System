@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Textbook Rental System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textbook Rental System</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="header">
     <h1>Textbook Rental Management System</h1>
-    <p>We welcome you to the modern, efficient, and student focused textbook rentals</p>
+    <p>We welcome you to the modern, efficient, and student-focused textbook rentals</p>
 </header>
 
 <nav class="navbar">
@@ -33,17 +33,40 @@
 
     <section class="card">
         <h2>Available Options</h2>
-        <ul>
-            <li>Browse available textbooks</li>
-            <li>Rent textbooks in real time</li>
-            <li>Return rented textbooks</li>
-        </ul>
+        <div class="options" role="list" aria-label="Available options">
+            <button type="button" class="option-btn" data-action="rent" aria-pressed="false">Browse available textbooks</button>
+            <button type="button" class="option-btn" data-action="rent" aria-pressed="false">Rent textbooks in real time</button>
+            <button type="button" class="option-btn" data-action="return" aria-pressed="false">Return rented textbooks</button>
+        </div>
+        <p id="actionHint" style="margin-top:10px; font-weight:bold;"></p>
+    </section>
+
+    <section class="card">
+        <h2>Available Courses</h2>
+        <label for="courses">Select a course:</label>
+        <select id="courses" onchange="showCourse()">
+            <option value="">-- Choose a course --</option>
+            <option value="CMPG111">Introduction to Programming (CMPG111)</option>
+            <option value="CMPG221">Data Structures and Algorithms (CMPG221)</option>
+            <option value="CMPG311">Database Systems (CMPG311)</option>
+            <option value="MTHS111">Calculus I (MTHS111)</option>
+        </select>
+        <p id="selectedCourse" style="margin-top:10px; font-weight:bold;"></p>
+
+        <div class="course-actions" style="margin-top:12px; display:flex; gap:8px; align-items:center;">
+            <button type="button" id="proceedBtn" disabled>Proceed</button>
+            <button type="button" id="clearSelectionBtn" class="secondary">Clear</button>
+        </div>
     </section>
 </main>
 
 <footer class="footer">
-    <p>&copy; 2026 Textbook Rental System | Academic Portfolio Project</p>
+    <p>&copy; 2026 Textbook Rental System 
+    </p>
 </footer>
+
+<!-- Link external JavaScript -->
+<script src="script.js"></script>
 
 </body>
 </html>
