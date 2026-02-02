@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Textbook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>Rent a Textbook</h1>
+    <p>Select and rent an available textbook</p>
+</header>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rent.html" class="active">Rent Textbook</a></li>
+        <li><a href="return.html">Return Textbook</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+    <section class="card">
+        <h2>Rental Form</h2>
+
+        <form>
+            <label for="textbook">Select a Textbook</label>
+            <select id="textbook" required>
+                <option value="">-- Choose a textbook --</option>
+                <option>Introduction to Programming(cmpg111)</option>
+                <option>Data Structures and Algorithms(cmpg221)</option>
+                <option>Databases Systems(cmpg311)</option>
+                <option>Calculus I(mths111)</option>
+            </select>
+
+            <label for="student">Student Name</label>
+            <input type="text" id="student" placeholder="Enter your name" required>
+
+            <button type="submit">Rent Textbook</button>
+        </form>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2026 Textbook Rental System</p>
+</footer>
+
+</body>
+</html>

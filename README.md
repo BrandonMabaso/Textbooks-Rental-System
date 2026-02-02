@@ -1,2 +1,4 @@
 # Textbooks-Rental-System
-This project is library management system but instead of focusing on every library aspects just that it focuses only on textbooks management. 
+This project implements a web-based Textbook Rental Management System that allows users to view available textbooks, rent items based on availability, and return rented textbooks. The system improves upon a console-based C++ implementation by introducing a user-friendly web interface built with HTML and CSS, supported by backend logic that manages inventory and validates rental operations.
+
+The project demonstrates the transition from a menu-driven application to a scalable web solution, emphasizing clean system design, separation of concerns, and real-world applicability. It serves as an academic and portfolio-focused project, highlighting foundational skills in software design and web development.
